@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", "Noto Kufi Arabic", system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", "Noto Kufi Arabic", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-arabic: "Noto Kufi Arabic", "IBM Plex Sans", system-ui, sans-serif;
+
+  --color-abyss: #05060c;
+  --color-panel: #0c0e18;
+  --color-panel2: #11131f;
+  --color-edge: #22263a;
+  --color-edge2: #2f3450;
+  --color-ink: #e8e9ee;
+  --color-mute: #8b90a5;
+  --color-mars: #c1440e;
+  --color-ember: #e8762d;
+  --color-sand: #e8b04b;
+  --color-dusty: #b0623a;
+  --color-cyanx: #22d3ee;
+  --color-jade: #34d399;
+  --color-amberx: #fbbf24;
+  --color-blood: #fb4b4b;
+  --color-violet: #c084fc;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--color-abyss);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgba(232, 118, 45, 0.35); color: #fff7ed; }
+
+/* thin sci-fi scrollbars */
+.slim-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.slim-scroll::-webkit-scrollbar-track { background: transparent; }
+.slim-scroll::-webkit-scrollbar-thumb { background: #2a2e45; border-radius: 8px; }
+.slim-scroll::-webkit-scrollbar-thumb:hover { background: #3a3f5e; }
+
+.panel {
+  background: linear-gradient(180deg, rgba(17,19,32,0.92), rgba(12,14,24,0.92));
+  border: 1px solid var(--color-edge);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.03);
+}
+.panel-inset { background: rgba(8,9,16,0.6); border: 1px solid rgba(34,38,58,0.7); }
+
+.text-glow { text-shadow: 0 0 22px rgba(232,118,45,0.55), 0 0 60px rgba(232,118,45,0.25); }
+.cyan-glow { text-shadow: 0 0 18px rgba(34,211,238,0.5); }
+
+/* range slider */
+input[type="range"].mars-range {
+  -webkit-appearance: none; appearance: none; height: 4px; border-radius: 9999px;
+  background: linear-gradient(90deg, var(--color-ember) var(--fill,50%), #262a42 var(--fill,50%));
+  outline: none; cursor: pointer;
+}
+input[type="range"].mars-range::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 15px; height: 15px; border-radius: 50%;
+  background: #ffd9c2; border: 2px solid var(--color-ember);
+  box-shadow: 0 0 10px rgba(232,118,45,0.6); cursor: grab;
+}
+input[type="range"].mars-range::-moz-range-thumb {
+  width: 13px; height: 13px; border-radius: 50%;
+  background: #ffd9c2; border: 2px solid var(--color-ember);
+  box-shadow: 0 0 10px rgba(232,118,45,0.6); cursor: grab;
+}
+
+/* tick grid background for hero / sections */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(125,211,252,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125,211,252,0.05) 1px, transparent 1px),
+    linear-gradient(rgba(125,211,252,0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125,211,252,0.028) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+}
+
+.hazard-stripes {
+  background-image: repeating-linear-gradient(-45deg, rgba(251,191,36,0.9) 0 10px, rgba(10,10,10,0.92) 10px 20px);
+}
+
+@keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.pulse-dot { animation: pulse-dot 1.6s ease-in-out infinite; }
+
+@keyframes marquee-up { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+.telemetry-marquee { animation: marquee-up 22s linear infinite; }
+
+@keyframes scan { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
+.scanline { animation: scan 4.5s linear infinite; }
+
+/* focus visibility */
+:focus-visible { outline: 2px solid var(--color-cyanx); outline-offset: 2px; border-radius: 2px; }
+
+/* datetime input dark */
+input[type="datetime-local"].mars-dt { color-scheme: dark; }
+input[type="datetime-local"].mars-dt::-webkit-calendar-picker-indicator { filter: invert(0.7) sepia(0.4) saturate(2) hue-rotate(340deg); cursor: pointer; }
+
+button { font-family: inherit; }
