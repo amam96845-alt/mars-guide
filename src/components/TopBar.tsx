@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Rocket, Languages, Menu, X, Radio } from 'lucide-react';
+import { Languages, Menu, X, Radio } from 'lucide-react';
 import { useState } from 'react';
 import { useLang } from '../lib/i18n';
 
@@ -36,7 +36,7 @@ export default function TopBar() {
         <div className="flex items-center gap-3 min-w-0">
           <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
             <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-mars to-ember grid place-items-center shadow-[0_0_18px_rgba(232,118,45,0.4)] group-hover:shadow-[0_0_26px_rgba(232,118,45,0.6)] transition-shadow">
-              <Rocket size={19} strokeWidth={2.2} className="text-[#fff3e8] -rotate-45" />
+              <img src="/favicon.svg.svg" alt="" className="w-6 h-6 object-contain" />
             </div>
             <div className="leading-tight">
               <div className="font-display font-700 text-[15px] sm:text-base font-bold tracking-tight text-ink">
